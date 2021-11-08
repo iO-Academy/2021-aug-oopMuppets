@@ -1,0 +1,22 @@
+body {
+    background-color: #FEFF57;
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    position: fixed;
+    bottom: 0;
+}
+
+@media screen and (max-width: 880px) {
+    section img {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    header img {
+        width: 100%;
+    }
+}
