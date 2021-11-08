@@ -1,5 +1,7 @@
 <?php
 
+require_once 'vendor/autoload.php';
+
 ?>
 
 <html>
@@ -7,6 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="styles.css" />
     <title>Hyper Lynx's Muppets</title>
 </head>
