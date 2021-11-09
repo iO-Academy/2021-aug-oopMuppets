@@ -36,10 +36,9 @@ class MuppetDisplay {
     protected function displayMuppets(): string
     {
         foreach ($this->muppets as $muppet){
-            $this->muppetString .= "<article><img src='" . $muppet['img_url'] . "' alt='" . $muppet['name'] ."'/>"
-                . "<div><h4>" . $muppet['name'] . "</h4>"
-                . "<p>" . $muppet['debut_year'] . "</p>"
-                . "<button value='". $muppet['id'] . "' type='submit' action='details.php'>See More</button>"
+            $this->muppetString .= "<article><img src='" . $muppet->getImg_Url() . "' alt='" . $muppet->getName() ."'/>"
+                . "<div><h4>" . $muppet->getName() . "</h4>"
+                . "<p>" . $muppet->getDebut_Year() . "</p>"
                 . "</div></article>";
         }
         return $this->muppetString;
@@ -47,10 +46,11 @@ class MuppetDisplay {
 
     /**
      * Gives access to the muppet string
-     * @return $this->>muppetString
+     * @return $this->>displayMuppets
      */
-    public function getMuppetString(): string
+    public function getMuppetString()
     {
         return $this->displayMuppets();
+//        return $this->muppets;
     }
 }
