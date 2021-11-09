@@ -1,12 +1,15 @@
 <?php
 
+use Muppets\Classes\Db;
 use Muppets\Classes\MuppetDisplay;
+use Muppets\Classes\MuppetHydrator;
+
 require_once 'vendor/autoload.php';
 
-$dbConn = new \Muppets\Classes\Db();
+$dbConn = new Db();
 $db = $dbConn->getDb();
-$muppets = \Muppets\Classes\MuppetHydrator::retrieveAll($db);
-$muppetDisplay = new MuppetDisplay($muppets);
+$muppets = MuppetHydrator::retrieveAll($db);
+$muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 
 ?>
 
@@ -26,7 +29,7 @@ $muppetDisplay = new MuppetDisplay($muppets);
 </header>
 
 <main>
-    <?php echo $muppetDisplay->getMuppetString(); ?>
+    <?php echo $muppetDisplay;?>
 </main>
 
 <section>
