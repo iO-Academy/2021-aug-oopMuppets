@@ -17,8 +17,8 @@ main {
 
 article img {
     border-radius: 50%;
-    width: 175px;
-    height: 175px;
+    width: 225px;
+    height: 225px;
     object-fit: cover;
     object-position: top;
     margin: 0 30px;
@@ -26,9 +26,9 @@ article img {
 
 article {
     display: flex;
-    justify-content: center;
     align-items: center;
     margin: 15px;
+    width: 30%;
 }
 
 article div {
@@ -72,28 +72,51 @@ section img {
     padding:0;
 }
 
-@media screen and (max-width: 880px) {
+@media screen and (max-width: 910px) {
     section img {
         width: 100%;
     }
-}
-
-@media screen and (min-width: 880px){
-    article {
-        flex-direction: column;
-        margin-bottom: 30px;
-        text-align: center;
-    }
     article img {
-        margin-bottom: 20px;
         width: 225px;
         height: 225px;
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 865px){
+    article {
+        flex-direction: column;
+        text-align: center;
+    }
+    article img {
+        margin-bottom: 20px;
+    }
+}
+@media screen and (max-width: 865px) {
+    article {
+        flex-direction: column;
+        text-align: center;
+        width: 34%;
+    }
+    article div {
+        width: 50%;
+        padding: 20px;
+    }
+    article img {
+        margin: 0;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
     header img {
         width: 100%;
+    }
+    article {
+        width: 100%;
+    }
+    article img {
+        width: 275px;
+        height: 275px;
     }
 }
 
@@ -101,3 +124,7 @@ section img {
     font-family: muppetsFont;
     src: url(assets/the_muppet_font.otf);
 }
+
+/*
+no redundant code
+*/
