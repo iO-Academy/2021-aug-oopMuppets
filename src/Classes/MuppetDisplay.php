@@ -16,7 +16,7 @@
 //  </div>
 //</article>
 
-namespace App\Classes;
+namespace Muppets\Classes;
 
 /**
  *Displays all the muppets as a html string
@@ -36,7 +36,7 @@ class MuppetDisplay {
     protected function displayMuppets(): string
     {
         foreach ($this->muppets as $muppet){
-            $this->muppetString .= "<article><img href='" . $muppet['img_url'] . "' alt='" . $muppet['name'] ."'/>"
+            $this->muppetString .= "<article><img src='" . $muppet['img_url'] . "' alt='" . $muppet['name'] ."'/>"
                 . "<div><h4>" . $muppet['name'] . "</h4>"
                 . "<p>" . $muppet['debut_year'] . "</p>"
                 . "<button value='". $muppet['id'] . "' type='submit' action='details.php'>See More</button>"
@@ -51,6 +51,6 @@ class MuppetDisplay {
      */
     public function getMuppetString(): string
     {
-        return $this->muppetString;
+        return $this->displayMuppets();
     }
 }

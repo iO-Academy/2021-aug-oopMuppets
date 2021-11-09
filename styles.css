@@ -1,12 +1,75 @@
 body {
     background-color: #FEFF57;
+}
+
+header {
+    margin: 50px;
+    text-align: center;
+}
+
+main {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+article img {
+    border-radius: 50%;
+    width: 175px;
+    height: 175px;
+    object-fit: cover;
+    object-position: top;
+    margin: 0 30px;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+}
+
+article div {
+    margin: 0 30px;
+}
+
+article div h4 {
+    font-family: muppetsFont, Monaco, sans-serif;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin: 0;
+    color: #174E90
+}
+
+article div p {
+    color: #174E90;
+    font-family: Monaco, sans-serif;
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+article div button {
+    background-color: #729943;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-family: Monaco, sans-serif;
+    color: #fff;
+    cursor: pointer;
 }
 
 section {
-    position: fixed;
+    position: static;
     bottom: 0;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+}
+
+section img {
+    padding:0;
 }
 
 @media screen and (max-width: 880px) {
@@ -15,8 +78,26 @@ section {
     }
 }
 
+@media screen and (min-width: 880px){
+    article {
+        flex-direction: column;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    article img {
+        margin-bottom: 20px;
+        width: 225px;
+        height: 225px;
+    }
+}
+
 @media screen and (max-width: 500px) {
     header img {
         width: 100%;
     }
+}
+
+@font-face {
+    font-family: muppetsFont;
+    src: url(assets/the_muppet_font.otf);
 }
