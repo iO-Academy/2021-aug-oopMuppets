@@ -1,7 +1,7 @@
 <?php
 namespace Muppets\Classes;
 
-class Muppets {
+class MuppetEntity {
     protected int $id;
     protected string $name;
     protected int $debut_year;
@@ -11,7 +11,7 @@ class Muppets {
     protected int $hall_of_fame;
     protected string $img_url;
 
-    public function getid() : int
+    public function getId() : int
     {
         return $this->id;
     }
