@@ -1,20 +1,17 @@
 <?php
 namespace Muppets\Classes;
 
-class Muppets
-{
+class Muppets {
+    protected int $id;
+    protected string $name;
+    protected int $debut_year;
+    protected int $mayhem;
+    protected int $glamour;
+    protected int $humour;
+    protected int $hall_of_fame;
+    protected string $img_url;
 
-    public int $id;
-    public string $name;
-    public int $debut_year;
-    public int $mayhem;
-    public int $glamour;
-    public int $humour;
-    public int $hall_of_fame;
-    public string $img_url;
-
-
-    public function getId() : int
+    public function getid() : int
     {
         return $this->id;
     }

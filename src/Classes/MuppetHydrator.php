@@ -1,16 +1,12 @@
 <?php
 namespace Muppets\Classes;
 
-class MuppetHydrator
-{
-
+class MuppetHydrator {
     public static function retrieveAll(\PDO $db)
     {
         $query = $db->prepare("SELECT `id`, `name`, `debut_year`, `mayhem`, `glamour`, `hall_of_fame`, `img_url` FROM `characters`;");
         $query->setFetchMode(\PDO::FETCH_CLASS, Muppets::class);
-
         $query->execute();
         return $query->FetchALL();
     }
-
 }
