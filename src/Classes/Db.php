@@ -1,5 +1,5 @@
 <?php
-namespace 2021-aug-oopMuppets\Classes;
+namespace Muppets\Classes;
 
 class Db
 {
@@ -7,9 +7,10 @@ class Db
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=db: db name=muppets', 'root:', 'password');
+        $this->db = new \PDO('mysql:host=db: db name=muppets', 'root:', 'password');
     }
-    public function getDb(): PDO{
+    public function getDb(): \PDO
+    {
         return $this->db;
     }
 }

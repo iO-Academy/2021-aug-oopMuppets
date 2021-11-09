@@ -1,5 +1,5 @@
 <?php
-namespace 2021-aug-oopMuppets\Classes;
+namespace Muppets\Classes;
 
 class Muppets
 {
@@ -14,42 +14,42 @@ class Muppets
     public string $img_url;
 
 
-    public function getid()
+    public function getId() : int
     {
         return $this->id;
     }
 
-    public function getname()
+    public function getName() : string
     {
         return $this->name;
     }
 
-    public function getdebut_year()
+    public function getDebut_Year() : int
     {
         return $this->debut_year;
     }
 
-    public function getmayhem()
+    public function getMayhem() : string
     {
         return $this->mayhem;
     }
 
-    public function getglamour()
+    public function getGlamour() : int
     {
         return $this->glamour;
     }
 
-    public function gethumour()
+    public function getHumour() : int
     {
         return $this->humour;
     }
 
-    public function gethall_of_fame()
+    public function getHall_Of_Fame() : int
     {
         return $this->hall_of_fame;
     }
 
-    public function getimg_url()
+    public function getImg_Url() : string
     {
         return $this->img_url;
     }
