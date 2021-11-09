@@ -3,7 +3,7 @@ namespace Muppets\Classes;
 
 class MuppetHydrator
 {
-    public function retrieveAll(\PDO $db)
+    public static function retrieveAll(\PDO $db)
     {
 
         $query = $db->prepare("SELECT `id`, `name`, `debut_year`, `mayhem`, `glamour`, `hall_of_fame`, `img_url` FROM `characters`;");
