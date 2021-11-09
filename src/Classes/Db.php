@@ -7,7 +7,7 @@ class Db
 
     public function __construct()
     {
-        $this->db = new \PDO('mysql:host=db: db name=muppets', 'root:', 'password');
+        $this->db = new \PDO('mysql:host=db; dbname=muppets', 'root', 'password');
     }
     public function getDb(): \PDO
     {
