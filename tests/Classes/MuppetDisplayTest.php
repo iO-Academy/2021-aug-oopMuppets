@@ -27,7 +27,21 @@ class MuppetDisplayTest extends TestCase
             '</article>';
         $this->assertEquals($expectedOutput, $muppetDisplay);
     }
+    public function testFailure()
+    {
+        $muppetDisplay = MuppetDisplay::displayMuppets([]);
+        $expectedOutput = '<h1>:( All the muppets have gone out</h1>';
+
+        $this->assertEquals($expectedOutput, $muppetDisplay);
+    }
+    public function testMalformed()
+    {
+        $this->expectException(TypeError::class);
+        $muppetDisplay = MuppetDisplay::displayMuppets('Hello');
+    }
 }
+
+
 
 
 

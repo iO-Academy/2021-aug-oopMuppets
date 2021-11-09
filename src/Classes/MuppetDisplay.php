@@ -13,6 +13,9 @@ class MuppetDisplay {
      */
     public static function displayMuppets(array $muppets): string
     {
+        if (!count($muppets)){
+            return '<h1>:( All the muppets have gone out</h1>';
+        }
         $muppetString = '';
 
         foreach ($muppets as $muppet){
