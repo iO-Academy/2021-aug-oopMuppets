@@ -12,7 +12,7 @@ class MuppetDisplayTest extends TestCase
 {
     public function testSuccess()
     {
-        $muppetMock = $this->createStub(MuppetEntity::class);
+        $muppetMock = $this->createMock(MuppetEntity::class);
         $muppetMock->method('getName')->willReturn('Miss Piggy');
         $muppetMock->method('getImg_Url')->willReturn('MissPiggy.jpg');
         $muppetMock->method('getDebut_Year')->willReturn(1976);

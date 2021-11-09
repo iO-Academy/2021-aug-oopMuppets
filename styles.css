@@ -50,16 +50,6 @@ article div p {
     margin: 20px 0;
 }
 
-article div button {
-    background-color: #729943;
-    border: none;
-    border-radius: 20px;
-    padding: 5px 20px;
-    font-family: Monaco, sans-serif;
-    color: #fff;
-    cursor: pointer;
-}
-
 section {
     position: static;
     bottom: 0;
@@ -106,7 +96,6 @@ section img {
     }
 }
 
-
 @media screen and (max-width: 700px) {
     header img {
         width: 100%;
@@ -124,7 +113,3 @@ section img {
     font-family: muppetsFont;
     src: url(assets/the_muppet_font.otf);
 }
-
-/*
-no redundant code
-*/
