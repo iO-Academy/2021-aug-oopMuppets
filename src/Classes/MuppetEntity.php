@@ -1,5 +1,5 @@
 <?php
-namespace 2021-aug-oopMuppets\Classes;
+namespace Muppets\Classes;
 
 class Muppets
 {
