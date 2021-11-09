@@ -2,6 +2,10 @@
 
 require_once 'vendor/autoload.php';
 
+$dbConn = new \Muppets\Classes\Db();
+$db = $dbConn->getDb();
+$muppets = \Muppets\Classes\MuppetHydrator::retrieveAll($db);
+
 ?>
 
 <html>
