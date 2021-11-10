@@ -27,7 +27,7 @@ class MuppetEntity
         return $this->debut_year;
     }
 
-    public function getMayhem() : string
+    public function getMayhem() : int
     {
         return $this->mayhem;
     }
