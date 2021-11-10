@@ -28,7 +28,6 @@ class MuppetHydrator
      */
     public static function getMuppetDetails(\PDO $db, int $id)
     {
-
         $query = $db->prepare("SELECT `id`, `name`, `debut_year`, `mayhem`, `glamour`, `humour`, `hall_of_fame`, `img_url` FROM `characters` WHERE `id` = :id");
         $query->setFetchMode(\PDO::FETCH_CLASS, MuppetEntity::class);
         $query->bindParam(':id', $id);
