@@ -5,14 +5,25 @@ use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
 
 require_once 'vendor/autoload.php';
+
 $searchQuery = $_GET['searchInput'];
 
+$dbConn = new Db();
+$db = $dbConn->getDb();
+$muppets = MuppetHydrator::retrieveSearchQuery($db, $searchQuery);
+$muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 
+//$error = '';
+//if (isset($_GET['error']) && $_GET['error'] === '1') {
+//    $error = '404 Muppet not found - you\'s a muppet!';
+//}
+// VALIDATE USERINPUT
 if ($searchQuery !== '') {
-    $displaysearchQuery = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $searchQuery . '</h2>';
+    $displaysearchQuery = '<h2 class="searchTermPlaceholder" >You Searched For: </h2><h2 class="searchResult" >' . $searchQuery . '</h2>';
 }  else {
     $displaysearchQuery = '';
 }
+
 ?>
 
 <html lang="en-GB">
@@ -45,6 +56,9 @@ if ($searchQuery !== '') {
 <!--<div>-->
 <!--    <h1 class="error">--><?//= $error ?><!--</h1>-->
 <!--</div>-->
+<main>
+    <?php echo $muppetDisplay;?>
+</main>
 
 <section>
     <img src="assets/muppets.png" alt="All the muppets" />
@@ -52,4 +66,5 @@ if ($searchQuery !== '') {
 
 </body>
 </html>
+
 
