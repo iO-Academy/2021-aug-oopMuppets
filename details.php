@@ -7,7 +7,8 @@ require_once 'vendor/autoload.php';
 
 $dbConn = new Db();
 $db = $dbConn->getDb();
-$muppets = MuppetHydrator::retrieveAll($db);
+$muppet = MuppetHydrator::getMuppetDetails($db, $_GET['muppetId']);
+$muppetDisplayDetails = \Muppets\Classes\MuppetDisplay::displayMuppetDetails($muppet);
 
 ?>
 
@@ -29,7 +30,7 @@ $muppets = MuppetHydrator::retrieveAll($db);
 </header>
 
 <main>
-<?php ?>
+<?php echo $muppetDisplayDetails?>
 </main>
 
 <section>
