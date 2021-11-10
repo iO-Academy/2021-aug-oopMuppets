@@ -35,9 +35,23 @@ article div {
     margin: 0 30px;
 }
 
+article div button {
+    background-color: #729943;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-family: Monaco, sans-serif;
+    color: #fff;
+    cursor: pointer;
+}
+
+article div button:hover {
+    background-color: #A91725;
+}
+
 article div h4 {
     font-family: muppetsFont, Monaco, sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     letter-spacing: 1px;
     margin: 0;
     color: #174E90
@@ -46,7 +60,7 @@ article div h4 {
 article div p {
     color: #174E90;
     font-family: Monaco, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     margin: 20px 0;
 }
 
