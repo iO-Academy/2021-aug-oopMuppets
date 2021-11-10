@@ -28,29 +28,23 @@ class MuppetDisplay
         return $muppetString;
     }
 
-    public static function displayMuppetDetails($muppet) : string
+    public static function displayMuppetDetails(array $muppet) : string
     {
-        $singleMuppetString = 
+        $singleMuppetString = "<section class='muppetDetails'>"
+            . "<img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
+            . "<div><h1>" . $muppet->getName() . "</h1>"
+            . "<ul><li>Debut Year: " . $muppet->getDebutYear() . "</li>"
+            . "<li>Mayhem: " . $muppet->getMayhem() . "/50</li>"
+            . "<li>Glamour: " . $muppet->getGlamour() . "/20</li>"
+            . "<li>Hall of Fame: " . $muppet->getHallOfFame() . "/10</li>"
+            . "<li>Humour: " . $muppet->getHumour() . "/5</li></ul></div></section>"
+            . "<form method='get' action='/index.php'>"
+            . "<button type='submit'>Home</button>"
+            . "</form>";
+
+        return $singleMuppetString;
     }
-
 }
-
-?>
-
-<section class="muppetDetails">
-    <img />
-    <div>
-        <h1></h1>
-        <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </div>
-</section>
-<button></button>
 
 
 
