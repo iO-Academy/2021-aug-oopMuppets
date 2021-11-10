@@ -40,21 +40,3 @@ class MuppetDisplayTest extends TestCase
         $muppetDisplay = MuppetDisplay::displayMuppets('Hello');
     }
 }
-
-
-
-
-
-/*class CowTest extends TestCase { 
-    public function testSuccessEat()
-    { 
-        $cow = new Cow(); 
-        $grassMock = $this->createMock(Grass::class); 
-        $grassMock->expects($this->once()) 
-            ->method('getFoodType') 
-            ->willReturn('grass'); 
-        $expectedOutput = 'mmm grass'; 
-        $actualOutput = $cow->eat($grassMock); 
-        $this->assertEquals($expectedOutput, $actualOutput); 
-    } 
-}*/
