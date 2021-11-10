@@ -11,6 +11,10 @@ $db = $dbConn->getDb();
 $muppets = MuppetHydrator::retrieveAll($db);
 $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 
+$error = '';
+if ($_GET['error'] === '1') {
+    $error = '404 Muppet not found - you\'s a muppet!';
+}
 ?>
 
 <html lang="en-GB">
@@ -28,6 +32,10 @@ $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 <header>
     <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
 </header>
+
+<div>
+    <h1 class="error"><?= $error ?></h1>
+</div>
 
 <main>
     <?php echo $muppetDisplay;?>

@@ -7,6 +7,12 @@ header {
     text-align: center;
 }
 
+.error {
+    color: #A91725;
+    text-align: center;
+    font-family: Monaco, sans-serif;
+}
+
 main {
     display: flex;
     justify-content: center;

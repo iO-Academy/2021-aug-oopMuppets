@@ -24,7 +24,7 @@ class MuppetDisplayTest extends TestCase
                 .    '<h4>Miss Piggy</h4>'
                 .    '<p>1976</p>'
                 . '</div>'
-                . "<a class='button' href='details.php?muppetId=0'>See details</a>"
+                . "<a class='button' href='details.php?muppetId=0'>Check me out!</a>"
             . '</article>';
         $this->assertEquals($expectedOutput, $muppetDisplay);
     }

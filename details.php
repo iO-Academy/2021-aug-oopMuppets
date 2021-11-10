@@ -5,12 +5,21 @@ use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
 
 require_once 'vendor/autoload.php';
+if (isset($_GET['muppetId']) && preg_match('/^[1-9]+[0-9]?$/', $_GET['muppetId'])) {
+    $dbConn = new Db();
+    $db = $dbConn->getDb();
+    $muppet = MuppetHydrator::getMuppetDetails($db, $_GET['muppetId']);
+    $muppetDisplayDetails = MuppetDisplay::displayMuppetDetails($muppet);
+} else {
+    header('Location: index.php?error=1');
+}
 
-$dbConn = new Db();
-$db = $dbConn->getDb();
-$muppet = MuppetHydrator::getMuppetDetails($db, $_GET['muppetId']);
-$muppetDisplayDetails = MuppetDisplay::displayMuppetDetails($muppet);
-
+$muppetName = '';
+if (count($muppet)) {
+    $muppetName = $muppet[0]->getName();
+} else {
+    header('Location: index.php?error=1');
+}
 ?>
 
 <html lang="en-GB">
@@ -20,7 +29,7 @@ $muppetDisplayDetails = MuppetDisplay::displayMuppetDetails($muppet);
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="styles.css" />
-    <title><?= $muppet[0]->getName() ?></title>
+    <title><?= $muppetName ?></title>
 </head>
 
 <body>
