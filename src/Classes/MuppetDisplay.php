@@ -23,7 +23,7 @@ class MuppetDisplay
             $muppetString .= "<article><img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
                 . "<div><h4>" . $muppet->getName() . "</h4>"
                 . "<p>" . $muppet->getDebutYear() . "</p>"
-                . "<button type='submit' formaction='details.php?muppetId=" . $muppet->getId() . "'>More Details</button></div></article>";
+                . "<button type='submit' formaction='details.php?muppetId=" . $muppet->getId() . "'>See More!</button></div></article>";
         }
         return $muppetString;
     }
