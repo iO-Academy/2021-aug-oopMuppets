@@ -5,15 +5,20 @@ use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
 
 require_once 'vendor/autoload.php';
+if (isset($_GET['muppetId']) && preg_match('/^[1-9]+[0-9]?$/', $_GET['muppetId'])) {
+    $dbConn = new Db();
+    $db = $dbConn->getDb();
+    $muppet = MuppetHydrator::getMuppetDetails($db, $_GET['muppetId']);
+    $muppetDisplayDetails = MuppetDisplay::displayMuppetDetails($muppet);
+} else {
+    header('Location: index.php?error=1');
+}
 
-$dbConn = new Db();
-$db = $dbConn->getDb();
-$muppets = MuppetHydrator::retrieveAll($db);
-$muppetDisplay = MuppetDisplay::displayMuppets($muppets);
-
-$error = '';
-if (isset($_GET['error']) && $_GET['error'] === '1') {
-    $error = '404 Muppet not found - you\'s a muppet!';
+$muppetName = '';
+if (count($muppet)) {
+    $muppetName = $muppet[0]->getName();
+} else {
+    header('Location: index.php?error=1');
 }
 ?>
 
@@ -24,7 +29,7 @@ if (isset($_GET['error']) && $_GET['error'] === '1') {
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="normalize.css" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Hyper Lynx's Muppets</title>
+    <title><?= $muppetName ?></title>
 </head>
 
 <body>
@@ -33,12 +38,8 @@ if (isset($_GET['error']) && $_GET['error'] === '1') {
     <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
 </header>
 
-<div>
-    <h1 class="error"><?= $error ?></h1>
-</div>
-
 <main>
-    <?php echo $muppetDisplay;?>
+<?php echo $muppetDisplayDetails?>
 </main>
 
 <section>

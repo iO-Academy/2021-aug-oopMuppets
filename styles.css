@@ -7,6 +7,12 @@ header {
     text-align: center;
 }
 
+.error {
+    color: #A91725;
+    text-align: center;
+    font-family: Monaco, sans-serif;
+}
+
 main {
     display: flex;
     justify-content: center;
@@ -27,6 +33,7 @@ article img {
 article {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     margin: 15px;
     width: 30%;
 }
@@ -35,9 +42,25 @@ article div {
     margin: 0 30px;
 }
 
+.button {
+    background-color: #729943;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    font-family: Monaco, sans-serif;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.button:hover {
+    background-color: #A91725;
+}
+
 article div h4 {
     font-family: muppetsFont, Monaco, sans-serif;
-    font-size: 30px;
+    font-size: 24px;
     letter-spacing: 1px;
     margin: 0;
     color: #174E90
@@ -46,7 +69,7 @@ article div h4 {
 article div p {
     color: #174E90;
     font-family: Monaco, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     margin: 20px 0;
 }
 
@@ -60,6 +83,58 @@ section {
 
 section img {
     padding:0;
+}
+
+.muppetDetails {
+    display: flex;
+    justify-content: center;
+    text-align:left;
+}
+
+.muppetDetails h1 {
+    font-family: muppetsFont, Monaco, sans-serif;
+    letter-spacing: 1px;
+    color: #174E90;
+    font-size: 40px;
+}
+
+.muppetDetails ul li {
+    font-family: Monaco, sans-serif;
+    color: #174E90;
+    font-size: 20px;
+    margin: 20px 0;
+    font-weight: bold;
+}
+
+form {
+    margin-top: 30px;
+}
+
+form button {
+    font-size: 24px;
+}
+
+.muppetDetails img {
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    margin-right: 60px;
+}
+
+.muppetDetails ul {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+}
+
+.muppetAttribute {
+    color: #729943;
+}
+
+.outOf {
+    color: #A91725;
 }
 
 @media screen and (max-width: 910px) {
@@ -87,10 +162,11 @@ section img {
         flex-direction: column;
         text-align: center;
         width: 34%;
+        padding: 20px;
     }
     article div {
         width: 50%;
-        padding: 20px;
+        padding-top: 20px;
     }
     article img {
         margin: 0;
@@ -107,6 +183,15 @@ section img {
     article img {
         width: 275px;
         height: 275px;
+    }
+
+    .muppetDetails {
+        flex-flow: column;
+        align-items: center;
+    }
+
+    .muppetDetails img {
+        margin: 0;
     }
 }
 
