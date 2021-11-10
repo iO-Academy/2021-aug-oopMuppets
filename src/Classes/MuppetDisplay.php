@@ -23,8 +23,9 @@ class MuppetDisplay
             $muppetString .= "<article><img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
                 . "<div><h4>" . $muppet->getName() . "</h4>"
                 . "<p>" . $muppet->getDebutYear() . "</p>"
+                . "</div>"
                 . "<a class='button' href='details.php?muppetId=". $muppet->getId() . "'>See details</a>"
-                . "</div></article>";
+                . "</article>";
 
 
 
@@ -44,11 +45,11 @@ class MuppetDisplay
         $singleMuppetString = "<section class='muppetDetails'>"
             . "<img src='" . $muppet[0]->getImgUrl() . "' alt='" . $muppet[0]->getName() ."'/>"
             . "<div><h1>" . $muppet[0]->getName() . "</h1>"
-            . "<ul><li>Debut Year: " . $muppet[0]->getDebutYear() . "</li>"
-            . "<li>Mayhem: " . $muppet[0]->getMayhem() . "/50</li>"
-            . "<li>Glamour: " . $muppet[0]->getGlamour() . "/20</li>"
-            . "<li>Hall of Fame: " . $muppet[0]->getHallOfFame() . "/10</li>"
-            . "<li>Humour: " . $muppet[0]->getHumour() . "/5</li></ul></div></section>"
+            . "<ul><li>Debut Year: <span class='muppetAttribute'>" . $muppet[0]->getDebutYear() . "</span></li>"
+            . "<li>Mayhem: <span class='muppetAttribute'>" . $muppet[0]->getMayhem() . "</span><span class='outOf'>/50</span></li>"
+            . "<li>Glamour: <span class='muppetAttribute'>" . $muppet[0]->getGlamour() . "</span><span class='outOf'>/20</span></li>"
+            . "<li>Hall of Fame: <span class='muppetAttribute'>" . $muppet[0]->getHallOfFame() . "</span><span class='outOf'>/10</span></li>"
+            . "<li>Humour: <span class='muppetAttribute'>" . $muppet[0]->getHumour() . "</span><span class='outOf'>/5</span></li></ul></div></section>"
             . "<form method='get' action='index.php'>"
             . "<button class='button' type='submit'>Home</button>"
             . "</form>";

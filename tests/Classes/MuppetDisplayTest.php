@@ -23,8 +23,8 @@ class MuppetDisplayTest extends TestCase
                 . '<div>'
                 .    '<h4>Miss Piggy</h4>'
                 .    '<p>1976</p>'
-                .    "<a class='button' href='details.php?muppetId=0'>See details</a>"
                 . '</div>'
+                . "<a class='button' href='details.php?muppetId=0'>See details</a>"
             . '</article>';
         $this->assertEquals($expectedOutput, $muppetDisplay);
     }
@@ -56,11 +56,11 @@ class MuppetDisplayTest extends TestCase
         $expectedOutput = "<section class='muppetDetails'>"
             . "<img src='MissPiggy.jpg' alt='Miss Piggy'/>"
             . "<div><h1>Miss Piggy</h1>"
-            . "<ul><li>Debut Year: 1976</li>"
-            . "<li>Mayhem: 45/50</li>"
-            . "<li>Glamour: 20/20</li>"
-            . "<li>Hall of Fame: 10/10</li>"
-            . "<li>Humour: 2/5</li></ul></div></section>"
+            . "<ul><li>Debut Year: <span class='muppetAttribute'>1976</span></li>"
+            . "<li>Mayhem: <span class='muppetAttribute'>45</span><span class='outOf'>/50</span></li>"
+            . "<li>Glamour: <span class='muppetAttribute'>20</span><span class='outOf'>/20</span></li>"
+            . "<li>Hall of Fame: <span class='muppetAttribute'>10</span><span class='outOf'>/10</span></li>"
+            . "<li>Humour: <span class='muppetAttribute'>2</span><span class='outOf'>/5</span></li></ul></div></section>"
             . "<form method='get' action='index.php'>"
             . "<button class='button' type='submit'>Home</button>"
             . "</form>";
