@@ -24,7 +24,7 @@ class MuppetDisplay
                 . "<div><h4>" . $muppet->getName() . "</h4>"
                 . "<p>" . $muppet->getDebutYear() . "</p>"
                 . "</div>"
-                . "<a class='button' href='details.php?muppetId=". $muppet->getId() . "'>See details</a>"
+                . "<a class='button' href='details.php?muppetId=". $muppet->getId() . "'>Check me out!</a>"
                 . "</article>";
 
 

@@ -27,6 +27,7 @@ article img {
 article {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     margin: 15px;
     width: 30%;
 }
@@ -44,6 +45,7 @@ article div {
     color: #fff;
     cursor: pointer;
     text-decoration: none;
+
 }
 
 .button:hover {
@@ -112,7 +114,7 @@ form button {
     border-radius: 50%;
     object-fit: cover;
     object-position: top;
-    margin-right: 150px;
+    margin-right: 60px;
 }
 
 .muppetDetails ul {
@@ -136,9 +138,6 @@ form button {
     article img {
         width: 225px;
         height: 225px;
-    }
-    .muppetDetails img {
-        margin-right: 60px;
     }
 }
 
@@ -183,6 +182,10 @@ form button {
     .muppetDetails {
         flex-flow: column;
         align-items: center;
+    }
+
+    .muppetDetails img {
+        margin: 0;
     }
 }
 
