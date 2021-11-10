@@ -14,8 +14,8 @@ class MuppetDisplayTest extends TestCase
     {
         $muppetMock = $this->createMock(MuppetEntity::class);
         $muppetMock->method('getName')->willReturn('Miss Piggy');
-        $muppetMock->method('getImg_Url')->willReturn('MissPiggy.jpg');
-        $muppetMock->method('getDebut_Year')->willReturn(1976);
+        $muppetMock->method('getImgUrl')->willReturn('MissPiggy.jpg');
+        $muppetMock->method('getDebutYear')->willReturn(1976);
 
         $muppetDisplay = MuppetDisplay::displayMuppets([$muppetMock]);
         $expectedOutput = '<article>' .

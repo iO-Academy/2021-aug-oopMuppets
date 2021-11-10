@@ -5,7 +5,8 @@ namespace Muppets\Classes;
 /**
  *Displays all the muppets as a html string
  */
-class MuppetDisplay {
+class MuppetDisplay
+{
 
     /**
      * Creates protected HTML string
@@ -13,15 +14,15 @@ class MuppetDisplay {
      */
     public static function displayMuppets(array $muppets): string
     {
-        if (!count($muppets)){
+        if (!count($muppets)) {
             return '<h1>:( All the muppets have gone out</h1>';
         }
         $muppetString = '';
 
-        foreach ($muppets as $muppet){
-            $muppetString .= "<article><img src='" . $muppet->getImg_Url() . "' alt='" . $muppet->getName() ."'/>"
+        foreach ($muppets as $muppet) {
+            $muppetString .= "<article><img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
                 . "<div><h4>" . $muppet->getName() . "</h4>"
-                . "<p>" . $muppet->getDebut_Year() . "</p>"
+                . "<p>" . $muppet->getDebutYear() . "</p>"
                 . "</div></article>";
         }
         return $muppetString;
