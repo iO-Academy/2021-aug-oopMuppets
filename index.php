@@ -22,10 +22,11 @@ $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
     <link rel="stylesheet" href="styles.css" />
     <title>Hyper Lynx's Muppets</title>
 </head>
+
 <body>
 
 <header>
-    <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo"/>
+    <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
 </header>
 
 <main>

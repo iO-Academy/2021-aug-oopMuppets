@@ -1,7 +1,8 @@
 <?php
 namespace Muppets\Classes;
 
-class MuppetHydrator {
+class MuppetHydrator
+{
     /**
      * Queries db for all entries
      *
