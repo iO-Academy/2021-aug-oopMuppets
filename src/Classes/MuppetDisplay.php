@@ -30,14 +30,21 @@ class MuppetDisplay
 
     public static function displayMuppetDetails(array $muppet) : string
     {
+        if (!count($muppet)) {
+            return '<h1>:( This muppet seems to have gone out!</h1>';
+        }
+        if(count($muppet)>1) {
+            return '<h1>:( Too many muppets are trying to have a party!</h1>';
+        }
+
         $singleMuppetString = "<section class='muppetDetails'>"
-            . "<img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
-            . "<div><h1>" . $muppet->getName() . "</h1>"
-            . "<ul><li>Debut Year: " . $muppet->getDebutYear() . "</li>"
-            . "<li>Mayhem: " . $muppet->getMayhem() . "/50</li>"
-            . "<li>Glamour: " . $muppet->getGlamour() . "/20</li>"
-            . "<li>Hall of Fame: " . $muppet->getHallOfFame() . "/10</li>"
-            . "<li>Humour: " . $muppet->getHumour() . "/5</li></ul></div></section>"
+            . "<img src='" . $muppet[0]->getImgUrl() . "' alt='" . $muppet[0]->getName() ."'/>"
+            . "<div><h1>" . $muppet[0]->getName() . "</h1>"
+            . "<ul><li>Debut Year: " . $muppet[0]->getDebutYear() . "</li>"
+            . "<li>Mayhem: " . $muppet[0]->getMayhem() . "/50</li>"
+            . "<li>Glamour: " . $muppet[0]->getGlamour() . "/20</li>"
+            . "<li>Hall of Fame: " . $muppet[0]->getHallOfFame() . "/10</li>"
+            . "<li>Humour: " . $muppet[0]->getHumour() . "/5</li></ul></div></section>"
             . "<form method='get' action='/index.php'>"
             . "<button type='submit'>Home</button>"
             . "</form>";
