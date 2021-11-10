@@ -1,14 +1,19 @@
 <?php
 
+use Muppets\Classes\Db;
+use Muppets\Classes\MuppetDisplay;
+use Muppets\Classes\MuppetHydrator;
+
 require_once 'vendor/autoload.php';
 
-$dbConn = new \Muppets\Classes\Db();
+$dbConn = new Db();
 $db = $dbConn->getDb();
-$muppets = \Muppets\Classes\MuppetHydrator::retrieveAll($db);
+$muppets = MuppetHydrator::retrieveAll($db);
+$muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 
 ?>
 
-<html>
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -17,18 +22,19 @@ $muppets = \Muppets\Classes\MuppetHydrator::retrieveAll($db);
     <link rel="stylesheet" href="styles.css" />
     <title>Hyper Lynx's Muppets</title>
 </head>
+
 <body>
 
 <header>
-    <img src="assets/muppet_logo.png" />
+    <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
 </header>
 
 <main>
-
+    <?php echo $muppetDisplay;?>
 </main>
 
-<section class="muppetImageContainer">
-    <img class="muppetImage" src="assets/muppets.png" />
+<section>
+    <img src="assets/muppets.png" alt="All the muppets" />
 </section>
 
 </body>

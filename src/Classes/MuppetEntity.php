@@ -1,7 +1,8 @@
 <?php
 namespace Muppets\Classes;
 
-class MuppetEntity {
+class MuppetEntity
+{
     protected int $id;
     protected string $name;
     protected int $debut_year;
@@ -21,7 +22,7 @@ class MuppetEntity {
         return $this->name;
     }
 
-    public function getDebut_Year() : int
+    public function getDebutYear() : int
     {
         return $this->debut_year;
     }
@@ -41,12 +42,12 @@ class MuppetEntity {
         return $this->humour;
     }
 
-    public function getHall_Of_Fame() : int
+    public function getHallOfFame() : int
     {
         return $this->hall_of_fame;
     }
 
-    public function getImg_Url() : string
+    public function getImgUrl() : string
     {
         return $this->img_url;
     }
