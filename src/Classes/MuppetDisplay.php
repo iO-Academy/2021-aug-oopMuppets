@@ -28,4 +28,30 @@ class MuppetDisplay
         return $muppetString;
     }
 
+    public static function displayMuppetDetails($muppet) : string
+    {
+        $singleMuppetString = 
+    }
+
 }
+
+?>
+
+<section class="muppetDetails">
+    <img />
+    <div>
+        <h1></h1>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</section>
+<button></button>
+
+
+
+
