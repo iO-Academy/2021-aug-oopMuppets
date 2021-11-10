@@ -18,13 +18,14 @@ class MuppetDisplayTest extends TestCase
         $muppetMock->method('getDebutYear')->willReturn(1976);
 
         $muppetDisplay = MuppetDisplay::displayMuppets([$muppetMock]);
-        $expectedOutput = '<article>' .
-                "<img src='MissPiggy.jpg' alt='Miss Piggy'/>" .
-                 '<div>' .
-                    '<h4>Miss Piggy</h4>' .
-                    '<p>1976</p>' .
-                '</div>' .
-            '</article>';
+        $expectedOutput = '<article>'
+                . "<img src='MissPiggy.jpg' alt='Miss Piggy'/>"
+                . '<div>'
+                .    '<h4>Miss Piggy</h4>'
+                .    '<p>1976</p>'
+                .    "<a class='button' href='details.php?muppetId=0'>See details</a>"
+                . '</div>'
+            . '</article>';
         $this->assertEquals($expectedOutput, $muppetDisplay);
     }
     public function testFailureDisplayMuppets()
@@ -60,8 +61,8 @@ class MuppetDisplayTest extends TestCase
             . "<li>Glamour: 20/20</li>"
             . "<li>Hall of Fame: 10/10</li>"
             . "<li>Humour: 2/5</li></ul></div></section>"
-            . "<form method='get' action='/index.php'>"
-            . "<button type='submit'>Home</button>"
+            . "<form method='get' action='index.php'>"
+            . "<button class='button' type='submit'>Home</button>"
             . "</form>";
         $this->assertEquals($expectedOutput, $muppetDisplayDetails);
     }

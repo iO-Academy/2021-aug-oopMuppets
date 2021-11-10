@@ -23,9 +23,7 @@ class MuppetDisplay
             $muppetString .= "<article><img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
                 . "<div><h4>" . $muppet->getName() . "</h4>"
                 . "<p>" . $muppet->getDebutYear() . "</p>"
-                . "<form method='get' action='details.php?muppetId=10'>"
-                . "<button type='submit'>See More!</button></form>"
-                . "<a href='details.php?muppetId=". $muppet->getId() . "'>See details</a>"
+                . "<a class='button' href='details.php?muppetId=". $muppet->getId() . "'>See details</a>"
                 . "</div></article>";
 
 
@@ -52,7 +50,7 @@ class MuppetDisplay
             . "<li>Hall of Fame: " . $muppet[0]->getHallOfFame() . "/10</li>"
             . "<li>Humour: " . $muppet[0]->getHumour() . "/5</li></ul></div></section>"
             . "<form method='get' action='index.php'>"
-            . "<button type='submit'>Home</button>"
+            . "<button class='button' type='submit'>Home</button>"
             . "</form>";
 
         return $singleMuppetString;

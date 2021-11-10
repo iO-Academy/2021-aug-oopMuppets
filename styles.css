@@ -35,7 +35,7 @@ article div {
     margin: 0 30px;
 }
 
-button {
+.button {
     background-color: #729943;
     border: none;
     border-radius: 20px;
@@ -43,6 +43,7 @@ button {
     font-family: Monaco, sans-serif;
     color: #fff;
     cursor: pointer;
+    text-decoration: none;
 }
 
 article div button:hover {
