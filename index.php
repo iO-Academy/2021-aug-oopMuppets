@@ -12,7 +12,7 @@ $muppets = MuppetHydrator::retrieveAll($db);
 $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 
 $error = '';
-if ($_GET['error'] === '1') {
+if (isset($_GET['error']) && $_GET['error'] === '1') {
     $error = '404 Muppet not found - you\'s a muppet!';
 }
 ?>
