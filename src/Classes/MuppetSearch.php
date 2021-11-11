@@ -3,38 +3,40 @@
 namespace Muppets\Classes;
 
 class MuppetSearch {
-    private $searchInput;
-    private $sanitizedSearchInput;
-
-    public static function populateSearchInput()
-    {
-        if ($_GET['searchInput']) {
-            self::$searchInput = $_GET['searchInput'];
-        }
-    }
-
-    public static function getSanitizedSearchInput()
-    {
-        return self::$sanitizedSearchInput;
-    }
-
+    /**
+     * This method takes user input and removes any html special characters
+     *
+     * @param string $searchInput User input to be sanitized
+     *
+     * @return string returns sanitized string
+     */
     public static function sanitizeSearchInput(string $searchInput) : string
     {
-        return self::$sanitizedSearchInput = filter_var($searchInput, FILTER_SANITIZE_SPECIAL_CHARS);
-    }
-
-    public static function validateSearchInput(string $sanitizedSearchInput) : bool
-    {
-        if (gettype($sanitizedSearchInput) !== ('integer' || 'float')
-            && strlen($sanitizedSearchInput) <= 255 ) {
-            //wb numbers in strings??
-            return true;
+        if ($searchInput) {
+            return filter_var($searchInput, FILTER_SANITIZE_SPECIAL_CHARS);
         } else {
-            return false;
+            return "Error - no input provided";
         }
     }
+
+    /**
+     * Method validates sanitized input to boolean.
+     * Rejects any numbers, strings with only whitespace and string length of over 255.
+     *
+     * @param string $sanitizedSearchInput takes sanitized input
+     *
+     * @return bool If user input passes validation will return true.
+     */
+    public static function validateSearchInput(string $sanitizedSearchInput) : bool
+    {
+        if (!preg_match('/[\d]+/', $sanitizedSearchInput)
+            && preg_match('/[\S]/', $sanitizedSearchInput)
+            && strlen($sanitizedSearchInput) <= 255) {
+                return true;
+            } else {
+                return false;
+            }
+        }
 }
 
-//is it actually doing something
-//doc blocks
-//unit testing x9
+//unit testing x6
