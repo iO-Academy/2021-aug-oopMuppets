@@ -276,6 +276,7 @@ form button {
     .muppetDetails {
         flex-flow: column;
         align-items: center;
+        margin-top: 50px;
     }
     .muppetDetails img {
         margin: 0;
