@@ -30,7 +30,9 @@ if (isset($_GET['error']) && $_GET['error'] === '1') {
 <body>
 <div class="content">
     <header>
-        <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        <a href="index.php">
+            <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        </a>
         <div class="searchContainer">
             <form class ="searchForm" action="search.php">
                 <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />

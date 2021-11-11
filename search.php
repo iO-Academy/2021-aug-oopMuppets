@@ -47,10 +47,11 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
 </head>
 
 <body>
-
-<header>
-    <div class="content">
-        <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+<div class="content">
+    <header>
+        <a href="index.php">
+            <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        </a>
         <div class="searchContainer">
             <form class ="searchForm" action="search.php">
                 <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
@@ -58,8 +59,10 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
                     <img class="searchIcon" src="assets/find.svg" alt="search button" />
                 </button>
             </form>
-        <div class="searchTermContainer" >
-            <?= $displaySanitizedSearchInput ?>
+                <a class='button clear' href="index.php">Clear Search</a>
+            <div class="searchTermContainer" >
+                <?= $displaySanitizedSearchInput?>
+            </div>
         </div>
     </div>
 </header>
