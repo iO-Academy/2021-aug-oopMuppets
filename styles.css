@@ -210,6 +210,12 @@ form button {
     color: #A91725;
 }
 
+.randomImage {
+    border-radius: 0;
+    object-fit: scale-down;
+
+}
+
 @media screen and (max-width: 910px) {
     section img {
         width: 100%;

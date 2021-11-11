@@ -11,17 +11,17 @@ $errorDb = '';
 $muppetDisplay = '';
 $displaySanitizedSearchInput = '';
 
-if (isset($_GET['searchInput'])){
-    $searchInput = $_GET['searchInput'];
+if (isset($_GET['searchInput'])){ // check that the GET superglobal contains something that has the value of searchInput
+    $searchInput = $_GET['searchInput']; // if it is, set the $searchInput as the actual input
 } else {
     header('Location: index.php');
 }
 
-if (isset($_GET['error']) && $_GET['error'] === '1') {
+if (isset($_GET['error']) && $_GET['error'] === '1') { // possibly not needed? because already accounted for
     $errorDb = '404 Muppet not found - you\'s a muppet!';
 }
 
-$sanitizedSearchInput = MuppetSearch::sanitizeSearchInput($searchInput);
+$sanitizedSearchInput = MuppetSearch::sanitizeSearchInput($searchInput); // taking users searchInput and put it through sanitiser
 if ($sanitizedSearchInput === "Error - no input provided" ) {
     $errorInput = $sanitizedSearchInput;
 } else if (MuppetSearch::validateSearchInput($sanitizedSearchInput)){
