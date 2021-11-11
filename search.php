@@ -32,7 +32,7 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
 } else if (MuppetSearch::validateSearchInput($sanitizedSearchInput)){
     $dbConn = new Db();
     $db = $dbConn->getDb();
-    $muppets = MuppetHydrator::retrieveSearchQuery($db, $searchInput);
+    $muppets = MuppetHydrator::retrieveSearchQuery($db, $sanitizedSearchInput);
     $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 } else {
     $errorInput = 'Please input a valid Muppet name that has fewer than 256 characters and no digits';
