@@ -126,6 +126,13 @@ article div {
     background-color: #A91725;
 }
 
+.clear {
+    display: flex;
+    text-align: center;
+    align-items: center;
+
+}
+
 article div h4 {
     font-family: muppetsFont, Monaco, sans-serif;
     font-size: 24px;

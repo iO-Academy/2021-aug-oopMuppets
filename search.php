@@ -39,7 +39,9 @@ if ($searchQuery !== '') {
 <body>
 <div class="content">
     <header>
-        <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        <a href="index.php">
+            <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        </a>
         <div class="searchContainer">
             <form class ="searchForm" action="search.php">
                 <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
@@ -47,6 +49,7 @@ if ($searchQuery !== '') {
                     <img class="searchIcon" src="assets/find.svg" />
                 </button>
             </form>
+                <a class='button clear' href="index.php">Clear Search</a>
             <div class="searchTermContainer" >
                 <?php echo $displaysearchQuery?>
             </div>
