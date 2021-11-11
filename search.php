@@ -5,15 +5,13 @@ use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
 
 require_once 'vendor/autoload.php';
+$searchQuery = $_GET['searchInput'];
 
-$dbConn = new Db();
-$db = $dbConn->getDb();
-$muppets = MuppetHydrator::retrieveAll($db);
-$muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 
-$error = '';
-if (isset($_GET['error']) && $_GET['error'] === '1') {
-    $error = '404 Muppet not found - you\'s a muppet!';
+if ($searchQuery !== '') {
+    $displaysearchQuery = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $searchQuery . '</h2>';
+}  else {
+    $displaysearchQuery = '';
 }
 ?>
 
@@ -38,16 +36,15 @@ if (isset($_GET['error']) && $_GET['error'] === '1') {
                 <img class="searchIcon" src="assets/find.svg" />
             </button>
         </form>
+        <div class="searchTermContainer" >
+            <?php echo $displaysearchQuery?>
+        </div>
     </div>
 </header>
 
-<div>
-    <h1 class="error"><?= $error ?></h1>
-</div>
-
-<main>
-    <?php echo $muppetDisplay;?>
-</main>
+<!--<div>-->
+<!--    <h1 class="error">--><?//= $error ?><!--</h1>-->
+<!--</div>-->
 
 <section>
     <img src="assets/muppets.png" alt="All the muppets" />
@@ -55,3 +52,4 @@ if (isset($_GET['error']) && $_GET['error'] === '1') {
 
 </body>
 </html>
+

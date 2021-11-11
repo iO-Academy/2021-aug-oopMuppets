@@ -15,7 +15,7 @@ class MuppetDisplay
     public static function displayMuppets(array $muppets): string
     {
         if (!count($muppets)) {
-            return '<h1>:( All the muppets have gone out</h1>';
+            return '<h1 class="error">:( All the muppets have gone out</h1>';
         }
         $muppetString = '';
 
@@ -36,10 +36,10 @@ class MuppetDisplay
     public static function displayMuppetDetails(array $muppet) : string
     {
         if (!count($muppet)) {
-            return '<h1>:( This muppet seems to have gone out!</h1>';
+            return '<h1 class="error">:( This muppet seems to have gone out!</h1>';
         }
         if(count($muppet)>1) {
-            return '<h1>:( Too many muppets are trying to have a party!</h1>';
+            return '<h1 class="error">:( Too many muppets are trying to have a party!</h1>';
         }
 
         $singleMuppetString = "<section class='muppetDetails'>"
