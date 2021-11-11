@@ -9,17 +9,12 @@ require_once 'vendor/autoload.php';
 $errorInput = '';
 $errorDb = '';
 $muppetDisplay = '';
+$displaySanitizedSearchInput = '';
 
 if (isset($_GET['searchInput'])){
     $searchInput = $_GET['searchInput'];
 } else {
     header('Location: index.php');
-}
-
-if ($searchInput !== '') {
-    $displaySearchInput = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $searchInput . '</h2>';
-    } else {
-    $displaySearchInput = '';
 }
 
 if (isset($_GET['error']) && $_GET['error'] === '1') {
@@ -34,6 +29,7 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
     $db = $dbConn->getDb();
     $muppets = MuppetHydrator::retrieveSearchQuery($db, $sanitizedSearchInput);
     $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
+    $displaySanitizedSearchInput = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $sanitizedSearchInput . '</h2>';
 } else {
     $errorInput = 'Please input a valid Muppet name that has fewer than 256 characters and no digits';
 }
@@ -63,13 +59,15 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
                 </button>
             </form>
         <div class="searchTermContainer" >
-            <?= $displaySearchInput ?>
+            <?= $displaySanitizedSearchInput ?>
         </div>
     </div>
 </header>
 
 <div>
+    <?php if ($errorInput !== '') { ?>
     <h1 class="error"><?= $errorInput ?></h1>
+     <?php }  ?>
     <main>
         <?= $muppetDisplay ?>
     </main>
