@@ -3,6 +3,7 @@
 use Muppets\Classes\Db;
 use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
+use Muppets\Classes\MuppetJumble;
 
 require_once 'vendor/autoload.php';
 
