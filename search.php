@@ -7,7 +7,6 @@ use Muppets\Classes\MuppetSearch;
 
 require_once 'vendor/autoload.php';
 $errorInput = '';
-$errorDb = '';
 $muppetDisplay = '';
 $displaySanitizedSearchInput = '';
 
@@ -15,10 +14,6 @@ if (isset($_GET['searchInput'])){
     $searchInput = $_GET['searchInput'];
 } else {
     header('Location: index.php');
-}
-
-if (isset($_GET['error']) && $_GET['error'] === '1') {
-    $errorDb = '404 Muppet not found - you\'s a muppet!';
 }
 
 $sanitizedSearchInput = MuppetSearch::sanitizeSearchInput($searchInput);
