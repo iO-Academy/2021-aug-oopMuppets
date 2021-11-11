@@ -6,8 +6,9 @@ use Muppets\Classes\MuppetHydrator;
 use Muppets\Classes\MuppetSearch;
 
 require_once 'vendor/autoload.php';
-
-$errorMessage = '';
+$errorInput = '';
+$errorDb = '';
+$muppetDisplay = '';
 
 if (isset($_GET['searchInput'])){
     $searchInput = $_GET['searchInput'];
@@ -17,20 +18,26 @@ if (isset($_GET['searchInput'])){
 
 if ($searchInput !== '') {
     $displaySearchInput = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $searchInput . '</h2>';
-}  else {
+    } else {
     $displaySearchInput = '';
+}
+
+if (isset($_GET['error']) && $_GET['error'] === '1') {
+    $errorDb = '404 Muppet not found - you\'s a muppet!';
 }
 
 $sanitizedSearchInput = MuppetSearch::sanitizeSearchInput($searchInput);
 if ($sanitizedSearchInput === "Error - no input provided" ) {
-    $errorMessage = $sanitizedSearchInput;
+    $errorInput = $sanitizedSearchInput;
 } else if (MuppetSearch::validateSearchInput($sanitizedSearchInput)){
-    echo $sanitizedSearchInput;
-    echo '<br>';
-    echo 'query db';
+    $dbConn = new Db();
+    $db = $dbConn->getDb();
+    $muppets = MuppetHydrator::retrieveSearchQuery($db, $searchInput);
+    $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
 } else {
-    $errorMessage = 'Please input a valid Muppet name that has fewer than 256 characters and no digits';
+    $errorInput = 'Please input a valid Muppet name that has fewer than 256 characters and no digits';
 }
+
 ?>
 
 <html lang="en-GB">
@@ -46,22 +53,27 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
 <body>
 
 <header>
-    <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
-    <div class="searchContainer">
-        <form class ="searchForm" action="search.php">
-            <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
-            <button class="searchButton" type="submit">
-                <img class="searchIcon" src="assets/find.svg" />
-            </button>
-        </form>
+    <div class="content">
+        <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        <div class="searchContainer">
+            <form class ="searchForm" action="search.php">
+                <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
+                <button class="searchButton" type="submit">
+                    <img class="searchIcon" src="assets/find.svg" alt="search button" />
+                </button>
+            </form>
         <div class="searchTermContainer" >
-            <?php echo $displaySearchInput?>
+            <?= $displaySearchInput ?>
         </div>
     </div>
 </header>
 
 <div>
-    <h1 class="error"><?= $errorMessage ?></h1>
+    <h1 class="error"><?= $errorInput ?></h1>
+    <main>
+        <?= $muppetDisplay ?>
+    </main>
+
 </div>
 
 <section>
@@ -70,4 +82,5 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
 
 </body>
 </html>
+
 
