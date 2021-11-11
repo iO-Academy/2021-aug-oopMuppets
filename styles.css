@@ -35,6 +35,8 @@ header {
     font-family: Monaco, sans-serif;
     font-size: 18px;
     width: 45%;
+    padding: 0 10px;
+
 }
 
 .searchResult {
@@ -44,6 +46,8 @@ header {
     width: 45%;
     word-wrap: break-word;
     text-align: left;
+    padding: 0 10px;
+
 }
 
 .searchIcon {
@@ -264,6 +268,20 @@ form button {
     }
     .searchContainer {
         width: 100%;
+    }
+    .searchTermContainer {
+        width: 100%;
+    }
+    .searchResult {
+        text-align: left;
+        margin-right: 5%;
+    }
+    .searchTermPlaceholder {
+        text-align: center;
+        margin-left: 5%;
+    }
+    .error {
+        width: 80%;
     }
 }
 

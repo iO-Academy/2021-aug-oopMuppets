@@ -15,7 +15,7 @@ class MuppetDisplay
     public static function displayMuppets(array $muppets): string
     {
         if (!count($muppets)) {
-            return '<h1 class="error">:( All the muppets have gone out</h1><img class="errorImage" src="../../assets/crying.png" />';
+            return '<h1 class="error">:( All the muppets have gone out</h1>';
         }
         $muppetString = '';
 
@@ -26,9 +26,6 @@ class MuppetDisplay
                 . "</div>"
                 . "<a class='button' href='details.php?muppetId=". $muppet->getId() . "'>Check me out!</a>"
                 . "</article>";
-
-
-
         }
         return $muppetString;
     }
@@ -36,12 +33,11 @@ class MuppetDisplay
     public static function displayMuppetDetails(array $muppet) : string
     {
         if (!count($muppet)) {
-            return '<h1 class="error">:( This muppet seems to have gone out!</h1><img class="errorImage" src="../../assets/crying.png" />';
+            return '<h1 class="error">:( This muppet seems to have gone out!</h1>';
         }
         if(count($muppet)>1) {
-            return '<h1 class="error">:( Too many muppets are trying to have a party!</h1><img class="errorImage" src="../../assets/crying.png" />';
+            return '<h1 class="error">:( Too many muppets are trying to have a party!</h1>';
         }
-
         $singleMuppetString = "<section class='muppetDetails'>"
             . "<img src='" . $muppet[0]->getImgUrl() . "' alt='" . $muppet[0]->getName() ."'/>"
             . "<div><h1>" . $muppet[0]->getName() . "</h1>"
@@ -53,7 +49,6 @@ class MuppetDisplay
             . "<form method='get' action='index.php'>"
             . "<button class='button' type='submit'>Home</button>"
             . "</form>";
-
         return $singleMuppetString;
     }
 }
