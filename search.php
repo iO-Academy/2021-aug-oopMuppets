@@ -4,10 +4,10 @@ use Muppets\Classes\Db;
 use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
 use Muppets\Classes\MuppetSearch;
+use Muppets\Classes\MuppetJumble;
 
 require_once 'vendor/autoload.php';
 $errorInput = '';
-$errorDb = '';
 $muppetDisplay = '';
 $displaySanitizedSearchInput = '';
 
@@ -15,10 +15,6 @@ if (isset($_GET['searchInput'])){
     $searchInput = $_GET['searchInput'];
 } else {
     header('Location: index.php');
-}
-
-if (isset($_GET['error']) && $_GET['error'] === '1') {
-    $errorDb = '404 Muppet not found - you\'s a muppet!';
 }
 
 $sanitizedSearchInput = MuppetSearch::sanitizeSearchInput($searchInput);
@@ -30,6 +26,7 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
     $muppets = MuppetHydrator::retrieveSearchQuery($db, $sanitizedSearchInput);
     $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
     $displaySanitizedSearchInput = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $sanitizedSearchInput . '</h2>';
+    $muppetJumbleId = MuppetJumble::getRandomId($muppets);
 } else {
     $errorInput = 'Please input a valid Muppet name that has fewer than 256 characters and no digits';
 }
@@ -73,6 +70,13 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
     echo "<h1 class='error'> {$errorInput} </h1>";
      }  ?>
     <main>
+        <article><img class='randomImage' src='assets/randomMuppet.png' alt='random muppet' />
+            <div>
+                <h4>Random Muppet</h4>
+                <p>1936-1996</p>
+            </div>
+            <a class='button' href='details.php?muppetId=<?= $muppetJumbleId; ?>'>Muppet Jumble!</a>
+        </article>
         <?= $muppetDisplay ?>
     </main>
 
