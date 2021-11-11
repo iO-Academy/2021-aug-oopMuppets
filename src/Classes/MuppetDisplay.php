@@ -17,10 +17,7 @@ class MuppetDisplay
         if (!count($muppets)) {
             return '<h1 class="error">:( All the muppets have gone out</h1>';
         }
-        $muppetString = "<article><img class='randomImage' src='assets/randomMuppet.png' alt='random muppet' />"
-            . "<div><h4>Random Muppet</h4><p>1936-1996</p></div>"
-            . "<a class='button' href='details.php?muppetId=" . MuppetJumble::getRandomId($muppets) . "'>Muppet Jumble!</a>"
-            . "</article>";
+        $muppetString = '';
 
         foreach ($muppets as $muppet) {
             $muppetString .= "<article><img src='" . $muppet->getImgUrl() . "' alt='" . $muppet->getName() ."'/>"
