@@ -34,4 +34,13 @@ class MuppetHydrator
         $query->execute();
         return $query->fetchAll();
     }
+
+    public static function retrieveSearchQuery(\PDO $db, string $sanitizedSearchInput)
+    {
+        $query = $db->prepare("SELECT `id`, `name`, `debut_year`, `mayhem`, `glamour`, `humour`, `hall_of_fame`, `img_url` FROM `characters` WHERE `name` LIKE '%' :sanitizedSearchInput '%'");
+        $query->setFetchMode(\PDO::FETCH_CLASS, MuppetEntity::class);
+        $query->bindParam(':sanitizedSearchInput', $sanitizedSearchInput);
+        $query->execute();
+        return $query->fetchAll();
+    }
 }

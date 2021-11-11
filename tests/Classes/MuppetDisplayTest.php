@@ -31,7 +31,7 @@ class MuppetDisplayTest extends TestCase
     public function testFailureDisplayMuppets()
     {
         $muppetDisplay = MuppetDisplay::displayMuppets([]);
-        $expectedOutput = '<h1>:( All the muppets have gone out</h1>';
+        $expectedOutput = '<h1 class="error">:( All the muppets have gone out</h1>';
 
         $this->assertEquals($expectedOutput, $muppetDisplay);
     }
@@ -70,14 +70,14 @@ class MuppetDisplayTest extends TestCase
     public function testFailureOneDisplayMuppetDetails()
     {
         $muppetDisplayDetails = MuppetDisplay::displayMuppetDetails([]);
-        $expectedOutput = '<h1>:( This muppet seems to have gone out!</h1>';
+        $expectedOutput = '<h1 class="error">:( This muppet seems to have gone out!</h1>';
 
         $this->assertEquals($expectedOutput, $muppetDisplayDetails);
     }
     public function testFailureTwoDisplayMuppetDetails()
     {
         $muppetDisplayDetails = MuppetDisplay::displayMuppetDetails([1,2]);
-        $expectedOutput = '<h1>:( Too many muppets are trying to have a party!</h1>';
+        $expectedOutput = '<h1 class="error">:( Too many muppets are trying to have a party!</h1>';
 
         $this->assertEquals($expectedOutput, $muppetDisplayDetails);
     }

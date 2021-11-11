@@ -28,18 +28,29 @@ if (isset($_GET['error']) && $_GET['error'] === '1') {
 </head>
 
 <body>
+<div class="content">
+    <header>
+        <a href="index.php">
+            <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        </a>
+        <div class="searchContainer">
+            <form class ="searchForm" action="search.php">
+                <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
+                <button class="searchButton" type="submit">
+                    <img class="searchIcon" src="assets/find.svg" />
+                </button>
+            </form>
+        </div>
+    </header>
 
-<header>
-    <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
-</header>
+    <div>
+        <h1 class="error"><?= $error ?></h1>
+    </div>
 
-<div>
-    <h1 class="error"><?= $error ?></h1>
+    <main>
+        <?php echo $muppetDisplay;?>
+    </main>
 </div>
-
-<main>
-    <?php echo $muppetDisplay;?>
-</main>
 
 <section>
     <img src="assets/muppets.png" alt="All the muppets" />

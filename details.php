@@ -33,14 +33,17 @@ if (count($muppet)) {
 </head>
 
 <body>
+<div class="content">
+    <header>
+        <a href="index.php">
+            <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        </a>
+    </header>
 
-<header>
-    <img src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
-</header>
-
-<main>
-<?php echo $muppetDisplayDetails?>
-</main>
+    <main>
+    <?php echo $muppetDisplayDetails?>
+    </main>
+</div>
 
 <section>
     <img src="assets/muppets.png" alt="All the muppets" />
