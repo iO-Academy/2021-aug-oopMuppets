@@ -130,7 +130,6 @@ article div {
     display: flex;
     text-align: center;
     align-items: center;
-
 }
 
 article div h4 {
@@ -229,6 +228,9 @@ form button {
     article img {
         margin-bottom: 20px;
     }
+    #narrowClear {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 865px) {
@@ -244,6 +246,9 @@ form button {
     }
     article img {
         margin: 0;
+    }
+    #wideClear {
+        display: none;
     }
 }
 
