@@ -3,25 +3,35 @@
 use Muppets\Classes\Db;
 use Muppets\Classes\MuppetDisplay;
 use Muppets\Classes\MuppetHydrator;
+use Muppets\Classes\MuppetSearch;
 
 require_once 'vendor/autoload.php';
+$errorInput = '';
+$errorDb = '';
+$muppetDisplay = '';
+$displaySanitizedSearchInput = '';
 
-$searchQuery = $_GET['searchInput'];
+if (isset($_GET['searchInput'])){
+    $searchInput = $_GET['searchInput'];
+} else {
+    header('Location: index.php');
+}
 
-$dbConn = new Db();
-$db = $dbConn->getDb();
-$muppets = MuppetHydrator::retrieveSearchQuery($db, $searchQuery);
-$muppetDisplay = MuppetDisplay::displayMuppets($muppets);
+if (isset($_GET['error']) && $_GET['error'] === '1') {
+    $errorDb = '404 Muppet not found - you\'s a muppet!';
+}
 
-//$error = '';
-//if (isset($_GET['error']) && $_GET['error'] === '1') {
-//    $error = '404 Muppet not found - you\'s a muppet!';
-//}
-// VALIDATE USERINPUT
-if ($searchQuery !== '') {
-    $displaysearchQuery = '<h2 class="searchTermPlaceholder" >You Searched For: </h2><h2 class="searchResult" >' . $searchQuery . '</h2>';
-}  else {
-    $displaysearchQuery = '';
+$sanitizedSearchInput = MuppetSearch::sanitizeSearchInput($searchInput);
+if ($sanitizedSearchInput === "Error - no input provided" ) {
+    $errorInput = $sanitizedSearchInput;
+} else if (MuppetSearch::validateSearchInput($sanitizedSearchInput)){
+    $dbConn = new Db();
+    $db = $dbConn->getDb();
+    $muppets = MuppetHydrator::retrieveSearchQuery($db, $sanitizedSearchInput);
+    $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
+    $displaySanitizedSearchInput = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $sanitizedSearchInput . '</h2>';
+} else {
+    $errorInput = 'Please input a valid Muppet name that has fewer than 256 characters and no digits';
 }
 
 ?>
@@ -46,23 +56,26 @@ if ($searchQuery !== '') {
             <form class ="searchForm" action="search.php">
                 <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
                 <button class="searchButton" type="submit">
-                    <img class="searchIcon" src="assets/find.svg" />
+                    <img class="searchIcon" src="assets/find.svg" alt="search button" />
                 </button>
                 <a class='button clear' id="wideClear" href="index.php">Clear Search</a>
             </form>
                 <a class='button clear' id='narrowClear' href="index.php">Clear Search</a>
             <div class="searchTermContainer" >
-                <?php echo $displaysearchQuery?>
+                <?= $displaySanitizedSearchInput?>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!--<div>-->
-    <!--    <h1 class="error">--><?//= $error ?><!--</h1>-->
-    <!--</div>-->
+<div>
+    <?php if ($errorInput !== '') {
+    echo "<h1 class='error'> {$errorInput} </h1>";
+     }  ?>
     <main>
-        <?php echo $muppetDisplay;?>
+        <?= $muppetDisplay ?>
     </main>
+
 </div>
 
 <section>
