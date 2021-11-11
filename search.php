@@ -65,9 +65,9 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
 </header>
 
 <div>
-    <?php if ($errorInput !== '') { ?>
-    <h1 class="error"><?= $errorInput ?></h1>
-     <?php }  ?>
+    <?php if ($errorInput !== '') {
+    echo "<h1 class='error'> {$errorInput} </h1>";
+     }  ?>
     <main>
         <?= $muppetDisplay ?>
     </main>
