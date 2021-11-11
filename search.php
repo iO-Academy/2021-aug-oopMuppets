@@ -48,8 +48,9 @@ if ($searchQuery !== '') {
                 <button class="searchButton" type="submit">
                     <img class="searchIcon" src="assets/find.svg" />
                 </button>
+                <a class='button clear' id="wideClear" href="index.php">Clear Search</a>
             </form>
-                <a class='button clear' href="index.php">Clear Search</a>
+                <a class='button clear' id='narrowClear' href="index.php">Clear Search</a>
             <div class="searchTermContainer" >
                 <?php echo $displaysearchQuery?>
             </div>
