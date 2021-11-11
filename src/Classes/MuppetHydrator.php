@@ -15,7 +15,11 @@ class MuppetHydrator
         $query = $db->prepare("SELECT `id`, `name`, `debut_year`, `mayhem`, `glamour`, `humour`, `hall_of_fame`, `img_url` FROM `characters`;");
         $query->setFetchMode(\PDO::FETCH_CLASS, MuppetEntity::class);
         $query->execute();
-        return $query->fetchAll();
+        $results = $query->fetchAll();
+        echo '<pre>';
+        var_dump($results);
+        echo '</pre>';
+        return $results;
     }
 
     /**
