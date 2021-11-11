@@ -58,8 +58,9 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
                 <button class="searchButton" type="submit">
                     <img class="searchIcon" src="assets/find.svg" alt="search button" />
                 </button>
+                <a class='button clear' id="wideClear" href="index.php">Clear Search</a>
             </form>
-                <a class='button clear' href="index.php">Clear Search</a>
+                <a class='button clear' id='narrowClear' href="index.php">Clear Search</a>
             <div class="searchTermContainer" >
                 <?= $displaySanitizedSearchInput?>
             </div>
