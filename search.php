@@ -37,28 +37,29 @@ if ($searchQuery !== '') {
 </head>
 
 <body>
-
-<header>
-    <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
-    <div class="searchContainer">
-        <form class ="searchForm" action="search.php">
-            <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
-            <button class="searchButton" type="submit">
-                <img class="searchIcon" src="assets/find.svg" />
-            </button>
-        </form>
-        <div class="searchTermContainer" >
-            <?php echo $displaysearchQuery?>
+<div class="content">
+    <header>
+        <img class ="muppetLogo" src="assets/muppet_logo.png" alt="Hyper Lynx Muppet Logo" />
+        <div class="searchContainer">
+            <form class ="searchForm" action="search.php">
+                <input type="search" class="searchBar" placeholder="Search the Muppets" name="searchInput" />
+                <button class="searchButton" type="submit">
+                    <img class="searchIcon" src="assets/find.svg" />
+                </button>
+            </form>
+            <div class="searchTermContainer" >
+                <?php echo $displaysearchQuery?>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!--<div>-->
-<!--    <h1 class="error">--><?//= $error ?><!--</h1>-->
-<!--</div>-->
-<main>
-    <?php echo $muppetDisplay;?>
-</main>
+    <!--<div>-->
+    <!--    <h1 class="error">--><?//= $error ?><!--</h1>-->
+    <!--</div>-->
+    <main>
+        <?php echo $muppetDisplay;?>
+    </main>
+</div>
 
 <section>
     <img src="assets/muppets.png" alt="All the muppets" />
