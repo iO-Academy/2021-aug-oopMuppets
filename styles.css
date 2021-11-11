@@ -159,6 +159,7 @@ section img {
     display: flex;
     justify-content: center;
     text-align:left;
+    margin-top: 50px;
 }
 
 .muppetDetails h1 {
