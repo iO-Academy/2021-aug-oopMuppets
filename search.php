@@ -26,7 +26,7 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
     $muppets = MuppetHydrator::retrieveSearchQuery($db, $sanitizedSearchInput);
     $muppetDisplay = MuppetDisplay::displayMuppets($muppets);
     $displaySanitizedSearchInput = '<h2 class="searchTermPlaceholder" >Search Term: </h2><h2 class="searchResult" >' . $sanitizedSearchInput . '</h2>';
-    if(count($muppets)) {
+    if(count($muppets) > 1) {
         $muppetJumbleId = MuppetJumble::getRandomId($muppets);
     }
 } else {
@@ -73,7 +73,7 @@ if ($sanitizedSearchInput === "Error - no input provided" ) {
      }  ?>
     <main>
         <?php
-        if(count($muppets)) {
+        if(count($muppets) > 1) {
         ?>
         <article><img class='randomImage' src='assets/randomMuppet.png' alt='random muppet' />
             <div>
