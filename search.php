@@ -10,6 +10,7 @@ require_once 'vendor/autoload.php';
 $errorInput = '';
 $muppetDisplay = '';
 $displaySanitizedSearchInput = '';
+$muppets = [];
 
 if (isset($_GET['searchInput'])){
     $searchInput = $_GET['searchInput'];
